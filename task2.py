@@ -27,7 +27,6 @@ print("Число", n, "разложенное на простые множит�
 for i in user_list:
     if count == len_list - 1:
         print(user_list[count])
-        break
     else:
         print(user_list[count], end = "*")
         count += 1
