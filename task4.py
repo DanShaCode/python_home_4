@@ -1,17 +1,14 @@
-# Задана натуральная степень k. 
-# Сформировать случайным образом список коэффициентов (значения от 0 до 100) многочлена 
-# и записать в файл многочлен степени k.
-
-# Пример:
-
-# - k=2 => 2*x² + 4*x + 5 = 0 или x² + 5 = 0 или 10*x² = 0
-
 import random
 
 print()
+print("Данная программа формирует многочлен степени k.")
+print()
+print("Степень k задается пользователем.")
+print()
+
 k = "**"+input("Введите, пожалуйста, степень k: ")
 
-rand_coff = random.randint(3, 3)
+rand_coff = random.randint(1, 3)
 
 coff = []
 
@@ -22,8 +19,8 @@ while count < iter:
     coff.append(random.randint(0, 100))
     count += 1
 
-plus = '+'
-minus = '-'
+plus = ' + '
+minus = ' - '
 symbol = 0
 
 coff_elements = len(coff) 
@@ -74,11 +71,18 @@ index = 2
 
 while count < border:
         i = formula.insert(random.randrange(2, 8, 3), k)
+        formula.insert(len(formula), " = 0")
         count += 1
         index += 3
         break
 
+for i in formula:
+    if i == 0:
+        formula.remove(0)
+    if i == '**0':
+        formula.remove('**0')
 
-print()
-print("Созданная формула: ", *formula, "= 0", end = "")
-print()
+file = open("task4.txt", "w")
+file.write("Сгенерированный многочлен: ")
+file.write(''.join(map(str,formula)))
+file.close()
