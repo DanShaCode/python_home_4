@@ -82,6 +82,9 @@ for i in formula:
     if i == '**0':
         formula.remove('**0')
 
+print()
+print("Ответ записан в файле task4.txt")
+
 file = open("task4.txt", "w")
 file.write("Сгенерированный многочлен: ")
 file.write(''.join(map(str,formula)))
